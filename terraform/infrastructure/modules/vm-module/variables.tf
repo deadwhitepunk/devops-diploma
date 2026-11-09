@@ -82,3 +82,8 @@ variable "ssh_public_key" {
   description = "Public SSH key for VM access"
   type        = string
 }
+
+variable "security_group_ids" {
+  description = "SG for VM"
+  type        = set(string)
+}

@@ -57,6 +57,16 @@ variable "bastion" {
   })
 }
 
+variable "subnets" {
+  description = "Subnets configuration"
+
+  type = map(object({
+    name = string
+    cidr = string
+    zone = string
+  }))
+}
+
 variable "ssh_public_key" {
   description = "Public SSH key for infrastructure access"
   type        = string

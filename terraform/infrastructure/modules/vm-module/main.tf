@@ -17,8 +17,9 @@ resource "yandex_compute_instance" "vm" {
   }
 
   network_interface {
-    subnet_id = var.subnet_id
-    nat       = var.public_ip
+    subnet_id          = var.subnet_id
+    nat                = var.public_ip
+    security_group_ids = var.security_group_ids
   }
   scheduling_policy {
     preemptible = var.preemptible
