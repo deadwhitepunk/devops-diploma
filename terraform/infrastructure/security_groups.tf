@@ -1,5 +1,5 @@
 resource "yandex_vpc_security_group" "bastion_sg" {
-  name        = "bastion sg"
+  name        = "bastion_sg"
   description = "Security group for SG"
   network_id  = yandex_vpc_network.vpc.id
 
@@ -29,16 +29,37 @@ resource "yandex_vpc_security_group" "bastion_sg" {
     from_port      = 6443
     to_port        = 6443
   }
+
+  egress {
+    protocol       = "UDP"
+    description    = "DNS UDP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 53
+  }
+
+  egress {
+    protocol       = "TCP"
+    description    = "DNS TCP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 53
+  }
+
+  egress {
+    protocol       = "UDP"
+    description    = "NTP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 123
+  }
 }
 
 resource "yandex_vpc_security_group" "control_plane_sg" {
-  name        = "control plane sg"
+  name        = "control_plane_sg"
   description = "Security group for control plane"
   network_id  = yandex_vpc_network.vpc.id
 
   labels = {
     stage = "kuber"
-    type  = "control plane"
+    type  = "control_plane"
   }
 
   ingress {
@@ -93,16 +114,37 @@ resource "yandex_vpc_security_group" "control_plane_sg" {
     from_port      = 443
     to_port        = 443
   }
+
+  egress {
+    protocol       = "UDP"
+    description    = "DNS UDP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 53
+  }
+
+  egress {
+    protocol       = "TCP"
+    description    = "DNS TCP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 53
+  }
+
+  egress {
+    protocol       = "UDP"
+    description    = "NTP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 123
+  }
 }
 
 resource "yandex_vpc_security_group" "workers_sg" {
-  name        = "workers sg"
+  name        = "workers_sg"
   description = "Security group for worker nodes"
   network_id  = yandex_vpc_network.vpc.id
 
   labels = {
     stage = "kuber"
-    type  = "worker nodes"
+    type  = "worker_nodes"
   }
 
   ingress {
@@ -156,5 +198,26 @@ resource "yandex_vpc_security_group" "workers_sg" {
     v4_cidr_blocks = ["10.10.2.0/24"]
     from_port      = 6443
     to_port        = 6443
+  }
+
+  egress {
+    protocol       = "UDP"
+    description    = "DNS UDP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 53
+  }
+
+  egress {
+    protocol       = "TCP"
+    description    = "DNS TCP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 53
+  }
+
+  egress {
+    protocol       = "UDP"
+    description    = "NTP"
+    v4_cidr_blocks = ["0.0.0.0/0"]
+    port           = 123
   }
 }

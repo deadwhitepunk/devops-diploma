@@ -8,7 +8,7 @@ resource "yandex_vpc_subnet" "subnets" {
   v4_cidr_blocks = [each.value.cidr]
   zone           = each.value.zone
   network_id     = yandex_vpc_network.vpc.id
-  route_table_id = each.key == "private-a" || each.key == "private-b" ? yandex_vpc_route_table.private_rt.id : null
+  route_table_id = each.key == "private-a" || each.key == "private-d" ? yandex_vpc_route_table.private_rt.id : null
 }
 
 resource "yandex_vpc_gateway" "nat_gateway" {

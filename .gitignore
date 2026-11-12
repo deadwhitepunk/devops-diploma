@@ -4,3 +4,4 @@
 *.tfvars
 keys/
 *.terraform*
+ansible/kubespray
