@@ -152,6 +152,15 @@ ubuntu@worker-01:~$
 
 4. Ansible
 
+
+5. Container registry
+
+Был создан проект terraform terraform-registry. 
+
+В нем описано создание репозитория "app@ и Container registry.
+
+6. Docker-file
+
 1. Схема инфраструктуры
 Вся инфраструктура будет написана в terraform
 Kubernetes:
