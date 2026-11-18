@@ -21,7 +21,7 @@ XYZ
   filename = "../../ansible/kubespray/inventory/mycluster/inventory.ini"
 }
 
- resource "terraform_data" "ansible_config" {
+resource "terraform_data" "ansible_config" {
   triggers_replace = [
     sha256(local_file.inventory.content)
   ]
