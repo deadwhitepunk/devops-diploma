@@ -87,3 +87,9 @@ variable "security_group_ids" {
   description = "SG for VM"
   type        = set(string)
 }
+
+variable "user_data" {
+  description = "Cloud-init configuration"
+  type        = string
+  default     = null
+}

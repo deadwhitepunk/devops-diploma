@@ -292,10 +292,10 @@ resource "yandex_vpc_security_group" "alb_sg" {
   }
 
   egress {
-  protocol       = "ANY"
-  description    = "Traffic to backend workers"
-  v4_cidr_blocks = ["10.10.2.0/24", "10.10.3.0/24"]
-  from_port      = 0
-  to_port        = 65535
-}
+    protocol       = "ANY"
+    description    = "Traffic to backend workers"
+    v4_cidr_blocks = ["10.10.2.0/24", "10.10.3.0/24"]
+    from_port      = 0
+    to_port        = 65535
+  }
 }

@@ -24,7 +24,12 @@ resource "yandex_compute_instance" "vm" {
   scheduling_policy {
     preemptible = var.preemptible
   }
-  metadata = {
-    ssh-keys = "ubuntu:${var.ssh_public_key}"
-  }
+  metadata = merge(
+    {
+      ssh-keys = "ubuntu:${var.ssh_public_key}"
+    },
+    var.user_data == null ? {} : {
+      user-data = var.user_data
+    }
+  )
 }
