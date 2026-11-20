@@ -16,6 +16,13 @@
 
 [ССЫЛКА НА РЕПОЗИТОРИЙ С ПРИЛОЖЕНИЕМ](https://github.com/deadwhitepunk/nginx-demo-diploma/tree/main)
 
+Ссылки на endpoints
+
+| Ссылка | Назначение | 
+|---|---|
+| App | http://app.systemerase.site |
+| Grafana | http://grafana.systemerase.site |
+| Jenkins | http://jenkins.systemerase.site |
 #### Архитектура проекта
 
 Для реализации дипломного проекта была выбрана следующая архитектура:
@@ -278,7 +285,7 @@ Domain: app.systemerase.site
 
 Состояние подов:
 
-![Get podes](https://github.com/deadwhitepunk/devops-diploma/blob/main/img/k_get_podes.png)
+![Get podes](https://github.com/deadwhitepunk/devops-diploma/blob/main/img/k_get_pods.png)
 
 6. Yandex Application Load Balancer
 
@@ -335,7 +342,7 @@ ALB в YC
 
 2 credential: Docker and Kubernetes
 
-![creds](https://github.com/deadwhitepunk/devops-diploma/blob/main/img/creds_docker_k8s.png.png)
+![creds](https://github.com/deadwhitepunk/devops-diploma/blob/main/img/creds_docker_k8s.png)
 
 Репозиторий приложения:
 
