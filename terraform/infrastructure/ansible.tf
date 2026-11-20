@@ -1,4 +1,3 @@
-# Fill ansible inventory for Kubespray
 resource "local_file" "inventory" {
   content  = <<-XYZ
 [kube_control_plane]

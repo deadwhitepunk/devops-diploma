@@ -5,3 +5,4 @@
 keys/
 *.terraform*
 ansible/kubespray
+jenkins-kubeconfig.yaml
